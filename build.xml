@@ -22,15 +22,16 @@
         <mkdir dir="${system.test.dir}"/>
         <mkdir dir="${lib.dir}"/>
     </target>
-    
-    <target name="run-unit-test" depends="compile,compile-tests">
-        <junit printsummary="yes">
-            <classpath refid="classpath"/>
-            <formatter type="brief" usefile="false"/>
-            <batchtest fork="yes" todir="${unit.test.report.dir}">
-                <fileset dir="unit-test/" includes="**/*Test.java"/>
-            </batchtest>
-        </junit>
+
+    <target name="jar" depends="compile">
+
+
     </target>
+    
+    <target name="compile" depends="prepare">
+        <javac srcdir="${src.dir}" destdir="${build.prod.dir}" classpathref="classpath"/>
+    </target>
+
+
 
 </project>
